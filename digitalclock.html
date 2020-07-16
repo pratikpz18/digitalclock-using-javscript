@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Clock</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: black;
+	}
+	p{
+		width: 420px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		border-radius: 50px;
+		color: #00ffcc;
+		text-shadow: 0 0 3px #00ffcc, 0 0 6px #00ffcc, 0 0 8px #00ffff, 0 0 12px #00ffff;
+		font-size: 48px;
+		box-shadow:inset 2px 2px 8px rgba(255, 255, 255, 0.2), 0 8px 8px 2px rgba(0, 0, 0, 0.6);
+	}
+	
+	
+</style>
+<body>
+	<p></p>
+</body>
+<script>
+	setInterval(()=>{
+		let t=document.querySelector("p");
+		let h = new Date().getHours() ;
+		let m = new Date().getMinutes() ;
+		let s = new Date().getSeconds() ;
+		if (h >= 12)
+    		h = h - 12;
+
+		if(h < 10)
+			h="0" + h;
+		if(m < 10)
+			m="0" + m;
+		if(s < 10)
+			s="0" + s;
+
+		if (h>=12)
+			t.innerHTML = `${h} : ${m} : ${s}    PM ` ;
+		if (h<12)
+			t.innerHTML = `${h} : ${m} : ${s}    AM ` ;
+
+	}, 500);
+</script>
+</html>
